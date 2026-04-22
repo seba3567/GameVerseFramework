@@ -8,12 +8,13 @@
 ## [Unreleased]
 
 ### Added
-- **Server Bootstrap v0.2**: Docker images, Helm charts, Terraform modules
-  - Multi-stage Docker builds для production deployment
+- **Server Bootstrap v0.2**: Helm charts, Terraform modules
   - Kubernetes Helm charts с автоматическим scaling
   - Terraform modules для AWS/GCP/Azure infrastructure
   - Monitoring stack: Prometheus, Grafana, Jaeger tracing
   - Service mesh готовность (Istio compatibility)
+- CI/CD pipeline с GitHub Actions для server и client
+- Multi-platform builds (Linux, Windows, macOS)
 - Поддержка автозапуска через systemd и NSSM
 - Интеграционные тесты для CLI подкоманд
 - Admin REST API с JWT аутентификацией
