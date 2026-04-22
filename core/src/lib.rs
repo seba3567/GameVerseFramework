@@ -14,6 +14,7 @@
 #![warn(rust_2018_idioms)]
 
 pub mod config;
+pub mod dui;
 pub mod engine;
 pub mod ffi;
 pub mod game;
@@ -21,6 +22,7 @@ pub mod game_integration;
 pub mod logging;
 pub mod natives;
 pub mod net;
+pub mod nui;
 pub mod plugins;
 pub mod resource;
 pub mod scripting;

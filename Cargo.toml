@@ -1,6 +1,7 @@
 [workspace]
 members = [
     "core",
+    "client",
     "sdk/cli-tools",
     "benchmarks/perf_demo"
 ] 

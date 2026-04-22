@@ -86,8 +86,8 @@ pub struct LoggingConfig {
 /// Конфигурация базы данных
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DatabaseConfig {
-    /// URL подключения к PostgreSQL
-    pub postgres_url: Option<String>,
+    /// URL подключения к MariaDB
+    pub mariadb_url: Option<String>,
     /// URL подключения к Redis
     pub redis_url: Option<String>,
     /// Максимальное количество соединений в пуле
@@ -143,7 +143,7 @@ impl Default for Config {
                 jaeger_endpoint: None,
             },
             database: DatabaseConfig {
-                postgres_url: None,
+                mariadb_url: None,
                 redis_url: None,
                 max_connections: 10,
                 connection_timeout: 30,

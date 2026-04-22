@@ -27,7 +27,7 @@ enable_tracing = false
 jaeger_endpoint = ""  # Пустая строка означает отсутствие Jaeger
 
 [database]
-postgres_url = "postgres://gameverse:password@localhost/gameverse"
+mariadb_url = "mariadb://gameverse:password@localhost/gameverse"
 redis_url = "redis://localhost:6379"
 max_connections = 10
 connection_timeout = 30

@@ -1,0 +1,98 @@
+[package]
+name = "gameverse-client"
+version = "0.1.0"
+edition = "2021"
+authors = ["GameVerse Team <team@gameverse.dev>"]
+description = "GameVerse Client - Connect to GameVerse servers"
+license = "MIT"
+
+[lib]
+name = "gameverse_client"
+path = "src/lib.rs"
+
+[[bin]]
+name = "gameverse_client"
+path = "src/main.rs"
+
+[workspace]
+members = [
+    ".",
+    "src-tauri",
+]
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+tokio-util = "0.7"
+futures-util = "0.3"
+futures-core = "0.3"
+
+# Networking - QUIC primary
+quinn = "0.10.1"
+ws_stream_tungstenite = "0.10.2"
+tungstenite = "0.20.1"
+http-body = "0.4"
+quinn-utils = "0.1"
+
+# Scripting runtimes
+mlua = { version = "0.8.8", features = ["luajit", "vendored", "async"] }
+wasmtime = { version = "20.0", features = ["async"] }
+wasmtime-wasi = "20.0"
+
+# UI Rendering
+wry = "0.20.2"
+web_view = { version = "0.7", optional = true }
+
+# Serialization
+flatbuffers = "23.3.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+ron = "0.8"
+bincode = "1.3"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+tracing-appender = "0.2"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+color-eyre = "0.6"
+
+# Collections
+dashmap = "5.5"
+slotmap = "1.0"
+fxhash = "0.2"
+
+# Utilities
+uuid = { version = "1.6", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+once_cell = "1.19"
+parking_lot = "0.12"
+rand = "0.8"
+sha2 = "0.10"
+base64 = "0.21"
+url = "2.4"
+
+# File watching
+notify = "6.1"
+notify-debouncer = "0.4"
+
+# Threading
+crossbeam = "0.8"
+parking_lot = "0.12"
+
+[features]
+default = ["native-ui"]
+native-ui = ["web_view"]
+cef-ui = ["wry"]
+
+[profile.dev]
+opt-level = 1
+debug = true
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
