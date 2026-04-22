@@ -63,8 +63,8 @@ jobs:
       - name: Build gameverse-core
         run: cargo build -p gameverse-core --release
 
-      - name: Build gameverse-cli
-        run: cargo build -p gameverse-cli --release
+      - name: Build gameverse-cli (sdk/cli-tools)
+        run: cargo build -p gameverse --release
 
       - name: Run tests
         run: cargo test -p gameverse-core --release
